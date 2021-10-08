@@ -1,6 +1,8 @@
 # Correcteur d'orthographe
-La vraisemblance de chaque candidat *c* étant donné le mot entré *w* est donnée par 
+La vraisemblance de chaque candidat *c* étant donné le mot entré *w* est donnée par
+
 ![bayes](https://latex.codecogs.com/svg.latex?P(c|w)=\frac{P(w|c)P(c)}{P(c,w)})
+
 La probabilité a priori de chaque candidat *c* est prise comme la fréquence relative de *c* par rapport aux autres mots du corpus entier, avec lissage de Laplace.   
 
 Pour la probabilité a posteriori que le mot entré soit *w* alors que l’usager ait voulu tapper *c*, nous considérons un modèle basé sur une distribution softmaxée d’une mesure de similarité entre *w* et chaque candidat *c*.
