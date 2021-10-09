@@ -28,7 +28,7 @@ Pour éviter d’itérer à travers le corpus en entier et de calculer une mesur
 1. Nous considérons les altérations qui se trouvent à une unité de distance au sens Levenshtein du mot erroné. Du sous-ensemble de tokens résultants, nous ne retenons que ceux qui apparaissent dans le corpus (i.e. des mots existants). Cette opération coûte ~ *O(m)* dans la mesure où le nombre de mots à corriger est inférieur au nombre de mots dans le corpus.
 2. Nous retirons les voyelles de chaque mot du corpus et nous entreposons les tokens résultants dans un dictionnaire *dic_hash = {token: [liste de mots qui ont produit ce token]}*. Cette opération, qui n’est exécutée qu’une seule fois au lancement du programme, peut être vue comme une « mauvaise » fonction de hachage dont nous exploiterons les collisions pour générer des corrections potentielles. Pour corriger un mot, nous le soumettons à la même fonction de hachage, nous le altérons avec l’opération décrite en (1) et nous récupérons les mots du corpus associés aux tokens résultants à l’aide du dictionnaire *dic_hash*. L’ensemble des corrections considérées est l’union de l’ensemble de sortie en (1) et celui-ci.
 
-La vraisemblance de chaque mot candidat généré par cette approche est calculée ensuite calculée à partir d’une ou d’une combinaison linéaire de mesures de similarité dans le domaine des logits.
+La vraisemblance de chaque mot candidat généré par cette approche est calculée à partir d’une combinaison linéaire de mesures de similarité dans le domaine des logits.
 
 |   | Temps de correction de train.txt | Score de qualité|
 | ------------- | ------------- | ------------- |
